@@ -64,10 +64,8 @@ router.post('/', (req, res) => {
     product_name: req.body.product_name,
     price: req.body.price,
     stock: req.body.stock,
-    tagIds: req.body.tag_id,
     category_id: req.body.category_id
   })
-  Product.create(req.body)
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
       if (req.body.tagIds.length) {
